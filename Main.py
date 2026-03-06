@@ -27,12 +27,12 @@ def generate_output(date: str, paths:list[str]):
             sum_epa += len(c.readings_exceeding_EPA)
             sum_epa_24hr += len(c.readings_exceeding_EPA_24hr)
 
-        f.write("Average Number of Readings Exceeding WHO Standards (5.0 ug/m^3): \n" +
-                "\t" + str(round(sum_who / len(cities), 3)) + "\n" +
-                "Average Number of Readings Exceeding EPA Standards (9.0 ug/m^3): \n" +
-                "\t" + str(round(sum_epa / len(cities), 3)) + "\n" +
-                "Average Number of Readings Exceeding EPA 24hr Standards (35.0 ug/m^3): \n" +
-                "\t" + str(round(sum_epa_24hr / len(cities), 3)) + "\n" +
+        f.write(" Average Number of Readings Exceeding WHO Standards (5.0 ug/m^3): \n" +
+                "\t " + str(round(sum_who / len(cities), 3)) + "\n" +
+                " Average Number of Readings Exceeding EPA Standards (9.0 ug/m^3): \n" +
+                "\t " + str(round(sum_epa / len(cities), 3)) + "\n" +
+                " Average Number of Readings Exceeding EPA 24hr Standards (35.0 ug/m^3): \n" +
+                "\t " + str(round(sum_epa_24hr / len(cities), 3)) + "\n" +
                 "\n -- If any of the above values are significant and non-zero, there is a high probability that \n" +
                 "\tthis data indicates a significant health hazard to individuals living in this area.")
 
@@ -40,12 +40,12 @@ def generate_output(date: str, paths:list[str]):
 
 # Input must be in the form of: Date (M/D/Y), CSV Path, ... , CSV Path [accepts 1+ CSVs]
 if __name__ == '__main__':
-    # try:
-    date = sys.argv[1]
-    paths = []
-    for i in range (2, len(sys.argv)):
-        paths.append(sys.argv[i])
-    generate_output(date, paths)
-    # except:
-    #     print("Arguments invalid")
-    #     sys.exit(1)
+    try:
+        date = sys.argv[1]
+        paths = []
+        for i in range (2, len(sys.argv)):
+            paths.append(sys.argv[i])
+        generate_output(date, paths)
+    except:
+        print("Arguments invalid")
+        sys.exit(1)
