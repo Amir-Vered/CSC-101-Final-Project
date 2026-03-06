@@ -8,4 +8,4 @@ class Reading:
         self.value = value
 
     def __repr__(self):
-        return "MeasurementStartTime: {}/{}/{} {}:{} MeasuredValue: {} ug/m^3".format(self.month, self.day, self.year, self.hour, self.minute, self.value)
+        return "{} ug/m^3 -- {}/{}/{}, {}:{}".format(self.value, self.month, self.day, self.year, self.hour, str(self.minute).zfill(2))
