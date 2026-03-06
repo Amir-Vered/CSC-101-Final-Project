@@ -38,39 +38,44 @@ class City:
 
         self.highest_value = self.highest_recording()
         self.lowest_value = self.lowest_recording()
-        self.days_exceeding_WHO = self.days_exeeding_health_standards(5.0) # WHO: 5.0 ug/m^3
-        self.days_exceeding_EPA = self.days_exeeding_health_standards(9.0) # EPA: 9.0 ug/m^3
-        self.days_exceeding_EPA_24hr = self.days_exeeding_health_standards(35.0) # EPA 24 Hr: 35.0 ug/m^3
+        self.readings_exceeding_WHO = self.readings_exeeding_health_standards(5.0) # WHO: 5.0 ug/m^3
+        self.readings_exceeding_EPA = self.readings_exeeding_health_standards(9.0) # EPA: 9.0 ug/m^3
+        self.readings_exceeding_EPA_24hr = self.readings_exeeding_health_standards(35.0) # EPA 24 Hr: 35.0 ug/m^3
 
     def __repr__(self):
-        return ''' ----------  {}  ----------
-Monthly Average For Month of {}: 
-    {} ug/m^3
-Weekly Average For Week of {}: 
-    {} ug/m^3
-Daily Average For {}: 
-    {} ug/m^3
-Highest Value Recorded: 
-    {}
-Lowest Value Recorded:
-    {}
-Readings Exceeding WHO Standards (5.0 ug/m^3):
-    {}
-Readings Exceeding EPA Standards (9.0 ug/m^3):
-    {}
-Readings Exceeding EPA 24hr Standards (35.0 ug/m^3):
-    {}'''.format(self.name,
-             self.date,
-             round(self.monthly_average, 3),
-             self.date,
-             round(self.weekly_average, 3),
-             self.date,
-             round(self.daily_average, 3),
-             self.highest_value,
-             self.lowest_value,
-             len(self.days_exceeding_WHO),
-             len(self.days_exceeding_EPA),
-             len(self.days_exceeding_EPA_24hr))
+        return '''
+----------  {}  ----------
+Averages from {}:
+ Monthly Average For Month of {}: 
+     {} ug/m^3
+ Weekly Average For Week of {}: 
+     {} ug/m^3
+ Daily Average For {}: 
+     {} ug/m^3
+
+Complete Dataset:
+ Highest Value Recorded: 
+     {}
+ Lowest Value Recorded:
+     {}
+ Readings Exceeding WHO Standards (5.0 ug/m^3):
+     {}
+ Readings Exceeding EPA Standards (9.0 ug/m^3):
+     {}
+ Readings Exceeding EPA 24hr Standards (35.0 ug/m^3):
+     {}'''.format(self.name,
+                 self.date,
+                 self.date,
+                 round(self.monthly_average, 3),
+                 self.date,
+                 round(self.weekly_average, 3),
+                 self.date,
+                 round(self.daily_average, 3),
+                 self.highest_value,
+                 self.lowest_value,
+                 len(self.readings_exceeding_WHO),
+                 len(self.readings_exceeding_EPA),
+                 len(self.readings_exceeding_EPA_24hr))
 
     def average_monthly(self, month:int, year:int) -> float:
         l = []
@@ -116,5 +121,5 @@ Readings Exceeding EPA 24hr Standards (35.0 ug/m^3):
                 mini = i
         return self.readings[mini]
 
-    def days_exeeding_health_standards(self, value:float) -> list[list[Reading]]:
+    def readings_exeeding_health_standards(self, value:float) -> list[list[Reading]]:
         return [r for r in self.readings if r.value > value]
