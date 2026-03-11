@@ -2,6 +2,8 @@
 
 > **Note:** This repository contains a **school project** created for **CSC 101**. It is being shared publicly for portfolio/learning purposes.
 
+[Watch our video overview here!](https://www.youtube.com/watch?v=loot2YOKKLk)
+
 ## Project Proposal
 
 **Course:** CSC 101 (Final Project)  
