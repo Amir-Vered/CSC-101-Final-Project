@@ -2,8 +2,6 @@
 
 > **Note:** This repository contains a **school project** created for **CSC 101**. It is being shared publicly for portfolio/learning purposes.
 
-[Watch our video overview here!](https://www.youtube.com/watch?v=loot2YOKKLk)
-
 ## Project Proposal
 
 **Course:** CSC 101 (Final Project)  
@@ -83,3 +81,11 @@ The program will generate a **text-based summary report** containing:
 
 **Goal:**  
 Determine whether PM2.5 levels in major urban areas are within healthy standards. Ideally, the results indicate safe levels; if not, this project can help communicate risk and support calls to action.
+
+---
+
+## Links
+
+[YouTube Link](https://www.youtube.com/watch?v=loot2YOKKLk)
+
+[Portfolio Link](https://amirvered.com/project/csc101)
